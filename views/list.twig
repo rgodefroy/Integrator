@@ -1,0 +1,28 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+    <h2>Project List </h2>
+    
+    <table class="datagrid">
+        <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Last execution</th>
+                    <th>Status</th>               
+        </tr>       
+        {% for id, project in app.projects %}
+                <tr id="{{ id }}">
+                    <td>{{ id }}</td>
+                    <td><a href="/view/{{ id }}">{{ project.name }}</a></td>
+                {% if integrators[id] is not defined %}
+                    <td>none</td>
+                    <td></td>
+                {% else %}
+                    <td>[{{ integrators[id].end.format('Y-m-d H:i:s') }}] {{ integrators[id].action }}</td>
+                    <td><img src="/images/icons/{% if integrators[id].status == "done" %}tick.png{% else %}cross.png{% endif %}" title="{{ integrators[id].status }}"> <a href="/load/{{ integrators[id].file }}">{{ integrators[id].status }}</a></td>
+                {% endif %}
+                </tr>
+       {% endfor %}
+    </table>
+{% endblock %}
+

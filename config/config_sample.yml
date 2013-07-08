@@ -1,0 +1,12 @@
+loggers:
+  default:
+    file:
+      level: DEBUG
+
+paths:
+  data: /home/sample/data
+  projects: /home/sample/projects
+  
+process: index.php   
+
+server: http://sample.org

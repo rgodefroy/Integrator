@@ -1,0 +1,12 @@
+#Ignore everything in this directory
+*
+# Except this file
+!.gitignore
+!historytrigger.twig
+!home.twig
+!list.twig
+!run.twig
+!history.twig
+!layout.twig
+!readme.twig
+!view.twig

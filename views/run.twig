@@ -1,0 +1,33 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+
+    <h2 class="status_{{ integrator.status }}">Execution of {{ integrator.action }} for {{ integrator.name }} (id: {{ integrator.id }})</h2>
+    
+    revision: {{ integrator.revision }}<br/>
+    start: {{ integrator.start.date }}<br/>
+    end: {{ integrator.end.date }}<br/>
+    status: {{ integrator.status }}<br/>
+    
+    <h3>Tasks</h3> <a href="/run/{{ integrator.id }}/{{ integrator.action }}" class="btn"><img src="/images/icons/cog_go.png"/>Repeat</a> 
+    <ul class="tasks">
+    {% for name, task in integrator.tasks[integrator.action] %}
+        <li class="task status_{{ task.status }}">
+            <h4>{{ name }}</h4>
+            status: {{ task.status }}<br/>
+            node: {{ task.node.name }}<br/>
+            <ul class="commands">
+                <h5>commands: {{ task.commands|length }}</h5>
+                {% for command in task.commands %}
+                    <li class="command status_{{command.status}}">
+                        <h5 class="command">{{ command.command }}</h5>
+                        <div>
+                        <pre>{{ command.output }}</pre>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </li>
+    {% endfor %}
+{% endblock %}
+

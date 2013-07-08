@@ -1,0 +1,190 @@
+/* =Typography
+-----------------------------------------------------------------------------*/
+body {
+
+}
+
+h1, h2, h3, h4, h5 {
+    margin-top: 1em;
+}
+
+h2 {
+    font-size: 180%;
+}
+
+/* =Links
+-----------------------------------------------------------------------------*/
+a img {
+    vertical-align: middle;
+    margin-left:0.3em;
+    margin-right:0.3em;
+}
+
+/* =Layout
+-----------------------------------------------------------------------------*/
+#page {
+    clear: both;
+    max-width: 940px;
+    padding: 0.3em 4em;
+    margin: 24px auto;
+}
+
+#page img {
+    vertical-align: middle;
+}
+
+/* =Header
+-----------------------------------------------------------------------------*/
+
+
+#header-wrapper {
+  width: 100%;
+  background: transparent url(/images/icons/bricks.png) no-repeat 1em 1em ;
+  background-color: #045176;
+  overflow:hidden /* required to force height to grow with content when small width */
+}
+#header {
+  max-width: 940px;
+  padding: 0.3em 4em;
+  margin: 0 auto;
+}
+#header h1 {
+  margin: 0.1em 0;
+  color: #fff;
+  display: inline-block;
+}
+#header h1 a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* =Nav
+-----------------------------------------------------------------------------*/
+#header nav {
+    display: block;
+  float: right;
+  margin: 1em 0;
+}
+#header nav a {
+    color: #fff;
+}
+
+/* =Footer
+-----------------------------------------------------------------------------*/
+#footer {
+    max-width: 940px;
+    padding: 0 10px;
+    margin: 24px auto;
+  color: #666;
+  font-size: 80%;
+}
+
+
+/* =Customization
+-----------------------------------------------------------------------------*/
+/* =Form
+-----------------------------------------------------------------------------*/
+.forms .required {
+  font-weight: bold;
+  color: #000;
+}
+.forms .help {
+  display: block;
+  clear: both;
+  color: #999;
+  font-size: 80%;
+  padding: 0 0.3em;
+}
+/* last li is action buttons */
+.forms ul:last-child
+{
+  margin-top: 2em;
+}
+.forms ul.error li {
+  background-color: #FFC0CB;
+  padding: 1em;
+  font-weight: bold;
+}
+.forms input[readonly] {
+    border: 0;
+    box-shadow: 0 0 0;
+}
+
+/* =datagrid
+-----------------------------------------------------------------------------*/
+.datagrid {
+  margin-top: 1em;
+}
+
+.datagrid td pre {
+  max-width: 50em;
+  word-break: break-all;
+}
+
+.datagrid th {
+  font-weight: bold;
+  color: #999;
+  padding-right: 3em;
+}
+
+form.options ul {
+  padding: 1em;
+  background-color: #FFA500;
+  color: #fff;
+}
+
+form.options ul li {
+  display: inline-block;
+  padding-right: 2em;
+}
+
+/* misc
+-----------------------------------------------------------------------------*/
+div.notify {
+  padding: 1em;
+  background-color: #90EE90;
+  font-weight: bold;
+  color: #fff;
+}
+
+div.warning {
+  padding: 1em;
+  background: #FFE2A9 url(/images/icons/warning.png) no-repeat 1em center;
+  padding-left: 3em;
+  font-weight: bold;
+  color: #000;
+}
+
+li.task {
+    margin-top: 2em;
+}
+ul.commands {
+    margin-left: 0;
+    margin-top: 1em;
+    padding: 1em;
+    font-family: monospace;
+    background-color: #eee;
+    list-style: none;
+}
+li.command {
+    font-size: 12px !important;
+    line-height: 16px;
+}
+.status_error {
+    color: #A52A2A;
+}
+h2.status_error {
+    color: #A52A2A;
+}
+li.command.status_error pre {
+    background-color: #FFC0CB;
+}
+
+.status_pending {
+    color: #bbb;
+}
+li.command.status_pending pre {
+    display: none;
+}
+
+

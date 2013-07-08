@@ -1,0 +1,12 @@
+{
+    "require": {
+        "twig/twig": ">=1.8,<2.0-dev",
+        "silex/silex": "1.0.*@dev",
+        "symfony/twig-bridge": "~2.3",
+        "monolog/monolog": ">=1.0.0",
+        "symfony/config": "~2.1",
+		"herzult/php-ssh": "dev-master",
+        "nicl/silex-markdown": "1.0.*",
+        "swiftmailer/swiftmailer": "*"
+    }
+}

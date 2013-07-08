@@ -1,0 +1,46 @@
+name: Project's name
+description: Describe the project
+
+notifications:
+    email:
+        recipients: [sample_email@sample.fr, sample_email2@sample.fr]
+
+nodes:
+    Host1:
+        host: hostname1
+        port: portnumber
+        user: usr
+        password: password
+    Host2:
+        host: hostname2
+        port: portnumber
+        user: user
+        password: password
+
+actions:
+    action1:
+        task1:
+            node: Host1
+            commands: 
+                - command1
+                - command2
+                - ...
+        task2:
+            node: Host2
+            commands: 
+                - command1
+                - command2
+                - ...
+    action2:
+        task1:
+            node: Host1
+            commands: 
+                - command1
+                - command2
+                - ...
+        task2:
+            node: Host2
+            commands: 
+                 - command1
+                 - command2
+                 - ...

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>Thalos | Integrator Manager</title>
+    <link rel="icon" type="image/png" href="/images/icons/bricks.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/kube.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/master.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+  <div id="header-wrapper">
+    <div id="header">
+      {% block header %}
+        <h1><a href="/">Integrator</a></h1>
+        <nav class="nav-g">
+          <ul>
+            <li><a href="/">Projects</a></li>
+            <li><a href="/history">History</a></li>
+            <li><a href="/readme">Readme</a></li>
+          </ul>
+        </nav>
+      {% endblock %}
+    </div>
+  </div>
+
+  <div id="page">
+    {% if app.flash %}
+      <div class="notify">{{ app.flash }}</div>
+    {% endif %}
+    {% block content %}
+      Content of the page...
+    {% endblock %}
+  </div>
+
+  <div id="footer">
+    {% block footer %}
+      ~<br>
+      Thalos
+    {% endblock %}
+  </div>
+</body>
+</html> 

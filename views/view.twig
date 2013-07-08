@@ -1,0 +1,55 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+
+    <h2>Project {{ integrator.name }}  </h2>
+
+    <p>{{ integrator.description }}</p>
+    
+    id: {{ integrator.id }}<br/>
+    Name: {{ integrator.name }}<br/>
+    config file: projects/{{ integrator.id }}.yml</br>
+    
+    <h3>Nodes</h3>
+    <ul>
+        {% for name,node in integrator.nodes %}
+            <li>
+                <h4>{{ name }}</h4>
+                <ul>
+                    <li>Host: {{ node.host }}</li>
+                    <li>Port: {{ node.port }}</li>
+                    <li>User: {{ node.user }}</li>
+                    <li>Password: {{ node.password }}</li>
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+    
+    <h3>Actions</h3>
+    <ul>
+        {% for name,action in integrator.tasks %}
+            <li><h4>{{ name }}</h4>
+                <ul>
+                    {% for name,task in action %}
+                        <li>
+                            {{ name }}<br/>
+                            Node: {{ task.node.name}}<br/>
+                            Commands:<br/>
+                            <ul>
+                                {% for command in task.commands %}
+                                        <li>{{ command.command }}</li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% endfor %}
+                </ul>
+                <br/>
+                <a href="/run/{{ integrator.id }}/{{ name }}" class="btn"><img src="/images/icons/cog_go.png"/>run</a> 
+                <a href="/history/{{ integrator.id }}/{{ name }}"><img src="/images/icons/table_save.png"/>history</a>
+            </li>
+        {% endfor %}
+    </ul>
+    
+{% endblock %}
+
+    

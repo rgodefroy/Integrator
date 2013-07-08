@@ -1,0 +1,13 @@
+#Ignore everything in this directory
+*
+# Except this file
+!.gitignore
+!css
+!css/*
+!images
+!images/icons
+!images/icons/*
+!index.php
+!js
+!js/*
+
