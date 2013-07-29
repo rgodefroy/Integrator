@@ -29,7 +29,7 @@ Run composer on the project directory
 
 composer install --prefer-dist
 
-You need a server compatible with Silex Application (http://silex.sensiolabs.org/doc/web_servers.html) 
+You need a compatible server with Silex Application (http://silex.sensiolabs.org/doc/web_servers.html) 
 
 Usage
 -----
@@ -124,9 +124,43 @@ You can also run a trigger in command line using .bin/integrator.php (useful aft
 
 You can consult the last hundred executions in the history tab. It diplays the result of the execution selected.
 
+### Use Integrator in command line (hooks)
+
+Integrator could be used in command line. It can be usefull in case of hooks (SVN or Git for example)
+
+You can find the bin program in bin/integrator.php
+
+* Usage:
+			
+			Run an action:
+			
+			$argv[0] run <project_id> <action> <revision>
+			@return:
+			Integrator: <file>
+			Integrator: <status>
+			
+			Load an execution:
+			
+			$argv[0] load <file>
+			@return:
+			print <file> 
+
+
 Limitations
 -----------
 
-yaml multiple lines for command doesn't work (because of ";echo ?$" to get ExitCode) 
+Yaml multiple lines for command doesn't work (because of ";echo ?$" to get ExitCode) 
 
 
+License
+-------
+
+[Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0.html)
+
+Disclaimers
+-----------
+
+THIS SOFTWARE AND DOCUMENTATION IS PROVIDED "AS IS," AND COPYRIGHT HOLDERS MAKE NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO, WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE OR THAT THE USE OF THE SOFTWARE OR DOCUMENTATION WILL NOT INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.  
+COPYRIGHT HOLDERS WILL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF ANY USE OF THE SOFTWARE OR DOCUMENTATION.
+
+The name and trademarks of copyright holders may NOT be used in advertising or publicity pertaining to the software without specific, written prior permission. Title to copyright in this software and any associated documentation will at all times remain with copyright holders.

@@ -2,34 +2,25 @@
 <?php
 namespace ThalosGears\Integrator;
 
-    /**
-     * integrator.php allows to execute Integrator in command line
-     *
-     * @param  array   $argv        command arguments
-     * @return string  $status      done on success, or error on failure
-     *
-     * 
-     */
-
 if (!is_callable('ThalosGears\\Integrator\\ConsoleController::'.$argv[1])) {
 
-echo"    
-This script allows to execute Integrator application in command line
+	echo "    
+	This script allows to execute Integrator application in command line
 
-    Usage :
-        
-        Run an action:
-        $argv[0] run <project_id> <action> <revision>
-        @return:
-        Integrator: <file>
-        Integrator: <status>
-        
-        Load an execution:
-        $argv[0] load <file>
-        @return:
-        print <file> 
-  ";    
-exit;
+		Usage :
+			
+			Run an action:
+			$argv[0] run <project_id> <action> <revision>
+			@return:
+			Integrator: <file>
+			Integrator: <status>
+			
+			Load an execution:
+			$argv[0] load <file>
+			@return:
+			print <file> 
+	";
+	exit;
 }
 
 require_once __DIR__ . '/../bootstrap.php';

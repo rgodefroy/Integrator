@@ -3,10 +3,7 @@ namespace ThalosGears\Integrator;
 
 // Load libraries
 $loader = require_once( __DIR__ .'/vendor/autoload.php');
-$loader->add('ThalosGears', __DIR__ . '/../../lib');
-$loader->add('ThalosGears\\Integrator', __DIR__ . '/src/');
-$loader->add('Symfony', __DIR__ . '/../../lib');
-$loader->add('Monolog', __DIR__ . '/vendor/monolog/monolog/src/');
+$loader->add('ThalosGears', __DIR__ . '/src/');
 
 use Monolog\Handler\StreamHandler;
 
@@ -22,13 +19,13 @@ $app = new \Silex\Application();
 // Debug mode
 $app['debug'] = true;
 
-// Error logger par default avant tout
+// Error logger before loading config
 $logger = new Logger('app');
 $logger->pushHandler(new StreamHandler(__DIR__ . '/log/error.log', Logger::ERROR));
 
 // Load config
 try {
-    $yml = file_exists(__DIR__ . '/config/config.yml') ? __DIR__ . '/config/config.yml' : __DIR__ . '/config/config_prod.yml';
+    $yml = __DIR__ . '/config/config.yml';
     $logger->debug('loading config file', array('path' => $yml));
     $config = Yaml::parse($yml);
     $logger->debug('config', $config);
@@ -87,6 +84,3 @@ foreach ($app['projects'] as $project => $options) {
 foreach ($app['projects'] as $project => $options) {
 	$app["notifier.$project"]= new swiftMailNotifier($options['notifications']['email']['recipients'], $app);
 }
-
-
-
