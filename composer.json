@@ -6,12 +6,16 @@
         "symfony/twig-bridge": "~2.3",
         "symfony/config": "~2.1",
         "symfony/yaml": "~2.3",
-		"herzult/php-ssh": "dev-master",
+	"herzult/php-ssh": "dev-master",
         "nicl/silex-markdown": "1.0.*",
         "swiftmailer/swiftmailer": "*",
         "behat/behat": "2.4.*@stable",
         "behat/mink": "1.4.*@stable",
-        "behat/mink-extension": "*"
+        "behat/mink-extension": "*",
+        "behat/mink-goutte-driver": "*",
+        "behat/mink-selenium2-driver": "*",
+        "behat/mink-sahi-driver":  "1.0.*"
+
     },
     "config": {
         "bin-dir": "bin/"

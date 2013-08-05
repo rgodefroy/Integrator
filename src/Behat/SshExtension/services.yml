@@ -1,0 +1,45 @@
+services:
+
+    # Template for SSH session services
+    ssh.session:
+        public: false
+        class: Ssh\Session
+        arguments:
+            - ~ # configuration service
+            - ~ # authentication service
+
+    # Template for password authentication
+    ssh.authentication.password:
+        public: false
+        class: Ssh\Authentication\Password
+        arguments:
+            - ~ # username
+            - ~ # password
+
+    # Template for public_key authentication
+    ssh.authentication.public_key:
+        public: false
+        class: Ssh\Authentication\PublicKeyFile
+        arguments:
+            - ~ # username
+            - ~ # public key file
+            - ~ # private key file
+            - ~ # passphrase
+
+    # Template for SSH configuration
+    ssh.configuration:
+        public: false
+        class: Ssh\Configuration
+        arguments:
+            - ~ # host
+            - ~ # port
+
+    ssh.session_registry:
+        class: Behat\SshExtension\SessionRegistry
+
+    ssh.context.initializer.session_registry_aware_initializer:
+        class: Behat\SshExtension\Context\Initializer\SessionRegistryAwareInitializer
+        arguments:
+            - @ssh.session_registry
+        tags:
+            - { name: behat.context.initializer }

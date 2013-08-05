@@ -1,0 +1,18 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+    <h2>Action executions history for {{ id }} / {{ action }} </h2>
+    
+    <table class="datagrid">
+        <tr>
+                    <th>Date</th>
+                    <th>Status</th>               
+        </tr>       
+        {% for integrator in integrators %}
+                <tr id="{{ integrator.id }}">
+                    <td>{{ integrator.end.format('Y-m-d H:i:s') }}</td>
+                    <td><img src="/images/icons/{% if integrator.status == "done" %}tick.png{% else %}cross.png{% endif %}" title="{{ integrator.status }}"> <a href="/load/{{ integrator.file }}">{{ integrator.status }}</a></td>
+                </tr>
+       {% endfor %}
+    </table>
+{% endblock %}
