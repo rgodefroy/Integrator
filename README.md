@@ -4,7 +4,24 @@ Integrator
 Description
 ------------
 
-Integrator is an continuous integration Silex application 
+Integrator is an continuous integration application.
+
+It can be defined as a (very) tiny Jenkins, or as Sismo with SSH capabilities.
+
+Basicaly it executes commands (actions) on one or more integration servers (nodes) by SSH and notify/display results.
+Git or svn hooks should be use to run it automaticaly.
+
+If any command exit is not 0, the integration test run consider as failed. 
+
+It is based on Silex PHP micro framework and behat BDD tool.
+
+Behat scenario could be used to define actions.
+
+![projects screenshot](/screenshots/screenshot_projects_1.png "Projects page")
+
+![history screenshot](/screenshots/screenshot_history_1.png "History page")
+
+![execution screenshot](/screenshots/screenshot_execution_1.png "Execution report page")
 
 ### Definitions:
 
@@ -144,6 +161,30 @@ You can find the bin program in bin/integrator.php
 			$argv[0] load <file>
 			@return:
 			print <file> 
+
+### Behat scenario
+
+You can define a Behat scenario to manage your task.
+
+    Feature: Execute SSH command on nodes
+        As Integrator
+        In order to demonstrate BehatSshExtension feature
+        I need to create a folder on a integration server
+        
+        Scenario: Create a test folder on integration server
+            Given I have configured a project node "integration"
+            When I create the "/tmp/test" forlder on "integration"
+            Then the folder "/tmp/test" should exist on "integration"
+
+In the steps definition you can execute commands on nodes with BehatSshExtension service.
+
+    /**
+     * @When /^I create the "([^"]*)" folder on "([^"]*)" node$/
+     */
+    public function I createTheFolderOn($path, $node)
+    {
+        static::sshExec($node, 'mkdir -p '.escapeshellargs($path));
+    }
 
 
 Limitations
