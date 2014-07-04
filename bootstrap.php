@@ -14,6 +14,8 @@ use Nicl\Silex\MarkdownServiceProvider;
 use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\Yaml\Exception\ParseException;
 
+use SensioLabs\AnsiConverter\AnsiToHtmlConverter;
+
 $app = new \Silex\Application();
 
 // Debug mode
@@ -51,6 +53,18 @@ if (!isset($config['loggers']['default']['file']['path']))
 $app->register(new TwigServiceProvider(), array(
     'twig.path' => array(__DIR__ . '/views'),
 ));
+
+// twig extension
+$app['twig'] = $app->extend("twig", function (\Twig_Environment $twig) {
+    $twig->addFilter(
+        new \Twig_SimpleFilter('convertansitohtml', function ($ansi) {
+            $converter = new AnsiToHtmlConverter();
+            return $converter->convert($ansi);
+        })
+    );
+    return $twig;
+});
+
 
 // Markdown parser
 $app->register(new MarkdownServiceProvider());

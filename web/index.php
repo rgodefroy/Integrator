@@ -53,16 +53,16 @@ $app->get('/history', function(\Silex\Application $app)
 $app->get('/history/{id}/{action}', function(\Silex\Application $app, $id, $action) 
 {
     $integrators = array();
-        $executions = glob($app['paths']['data'].'/'.$id.'_*_'.$action.'_.dat');
-        //sort all results by date 
-        array_multisort(
-        array_map( 'filemtime', $executions ),
+    $executions = glob($app['paths']['data'].'/'.$id.'_*_'.$action.'_*.dat');
+    //sort all results by date 
+    array_multisort(
+        array_map('filemtime', $executions),
             SORT_NUMERIC,
             SORT_DESC,
         $executions
-        );
-        if (count($executions)) {
-            for ($i = 0; $i <= count($executions)-1 && $i <= 100; $i++) {
+    );
+    if (count($executions)) {
+        for ($i = 0; $i <= count($executions)-1 && $i <= 100; $i++) {
             $integrators[] = Integrator::load($executions[$i]);
         }
     }

@@ -187,4 +187,8 @@ li.command.status_pending pre {
     display: none;
 }
 
-
+li.command pre {
+  font-size: 80%;
+  color: #fff;
+  background: #000;
+}

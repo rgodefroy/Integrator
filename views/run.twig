@@ -22,7 +22,7 @@
                     <li class="command status_{{command.status}}">
                         <h5 class="command">{{ command.command }}</h5>
                         <div>
-                        <pre>{{ command.output }}</pre>
+                        <pre>{{ command.output|convertansitohtml|raw }}</pre>
                         </div>
                     </li>
                 {% endfor %}
